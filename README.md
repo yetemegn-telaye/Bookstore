@@ -1,33 +1,49 @@
 # Bookstore
-Bookstore app made with react.
+A bookstore to add and remove books.
+
+## Built With
+
+- HTML, CSS, JS
+- React, JSX, Redux
+- Gitflow
 
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+live demo here
 
-### `npm start`
+### Prerequisites
+- IDE(code editor) like: **Vscode**, **Sublime**, etc. 
+- [Git](https://www.linode.com/docs/guides/how-to-install-git-on-linux-mac-and-windows/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Setup
+1. Download the **Zip** file or clone the repo with:
+```bash
+git clone https://github.com/yetemegn-telaye/Bookstore.git
+```
+2. To access cloned directory run:
+```bash
+cd Bookstore
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Install
+> To install linters, react and other project's dependencies run:
+```bash
+npm install
+```
+## Run
+```bash
+1. To run this project :
+npm start
+2. open the urs localhost:8080 on your browser
+
+```
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -39,32 +55,49 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `npm test`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Launches the test runner in the interactive watch mode for React.\
 
-### Code Splitting
+## Run Test for Linters
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For tracking linter errors locally you need to follow these steps:
 
-### Analyzing the Bundle Size
+1. For tracking linter errors in HTML files run:
+```bash 
+npx hint .
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. For tracking linter errors in CSS or SASS files run:
 
-### Making a Progressive Web App
+```bash
+npx stylelint "\*_/_.{css,scss}"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. For tracking linter errors in JavaScript files run:
 
-### Advanced Configuration
+```bash
+npx eslint .
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Author
 
-### Deployment
+👤 **Yetemegn Lemma**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- GitHub: [@githubhandle](https://github.com/yetemegn-telaye)
+- Twitter: [@twitterhandle](https://twitter.com/Yetemegn19)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/yetemegn-telaye-81370920a/)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Show your support
+
+Give a ⭐ if you like this project!
+
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
+
+
