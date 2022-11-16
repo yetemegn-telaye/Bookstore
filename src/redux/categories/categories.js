@@ -2,14 +2,11 @@
 const CHECKSTATUS = 'bookstore/categories/CHECKSTATUS';
 
 //Reducer 
-export default function reducer(state={categories: []}, action = {}){
+export default function categoriesReducer(state={categories: []}, action = {}){
     switch(action.type){
         case "CHECKSTATUS":
             return "Under construction";
-            break;
-        default: 
-            return state;
-            break;
+        default: return state;
     }
 }
 
