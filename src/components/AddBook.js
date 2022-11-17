@@ -4,8 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
+  const [book, setBook] = useState({
+    id: '0',
+    title: 'null',
+    author: 'null',
+  });
   const dispatch = useDispatch();
-  const [book, setBook] = useState({});
   const handleAddClick = () => {
     const newBook = {
       id: uuidv4(),
@@ -13,11 +17,10 @@ const AddBook = () => {
       author: document.querySelector('#author').value,
     };
     setBook(newBook);
-    dispatch(addBook(newBook));
+    dispatch(addBook(book));
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
   };
-  console.log(book);
   return (
     <form>
       <h3>Add new Book</h3>
