@@ -9,7 +9,14 @@ const Books = () => {
     <div>
       <h1>Books</h1>
       {
-        booksArr.map((book) => <Book key={book.id} title={book.title} author={book.author} bookId={book.id} />)
+        booksArr.map((book) => (
+          <Book
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            bookId={book.id}
+          />
+        ))
       }
       <AddBook />
     </div>
