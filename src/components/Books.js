@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import AddBook from './AddBook';
 import Book from './Book';
 
-class Books extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Books</h1>
-        <Book title="Hunger Games" author="Suzzane Collins" />
-        <Book title="Harry Potter" author="J.K. Rowling" />
-        <Book title="Hunger Games" author="Suzzane Collins" />
-        <Book title="Harry Potter" author="J.K. Rowling" />
-        <AddBook />
-      </div>
-    );
-  }
-}
+const Books = () => {
+  const booksArr = useSelector((state) => state.books);
+  return (
+    <div>
+      <h1>Books</h1>
+      {
+        booksArr.map((book) => (
+          <Book
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            bookId={book.id}
+          />
+        ))
+      }
+      <AddBook />
+    </div>
+  );
+};
 export default Books;

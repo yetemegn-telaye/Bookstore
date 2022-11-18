@@ -1,8 +1,10 @@
 // Actions
-const CHECKSTATUS = 'bookstore/categories/CHECKSTATUS';
+const CHECKSTATUS = 'CHECKSTATUS';
+
+const catagories = [];
 
 // Reducer
-export default function categoriesReducer(state = { categories: [] }, action = {}) {
+export default function categoriesReducer(state = catagories, action) {
   switch (action.type) {
     case 'CHECKSTATUS':
       return 'Under construction';
@@ -11,6 +13,8 @@ export default function categoriesReducer(state = { categories: [] }, action = {
 }
 
 // Action Creators
-export function checkStatus(categories) {
-  return { type: CHECKSTATUS, categories };
+export function checkStatus() {
+  return {
+    type: CHECKSTATUS,
+  };
 }
