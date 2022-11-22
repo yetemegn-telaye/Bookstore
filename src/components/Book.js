@@ -10,12 +10,14 @@ const Book = (props) => {
     <div>
       <p>
         {title}
-        by
+        BY
         {author}
       </p>
       <button
         type="button"
-        onClick={() => dispatch(removeBook(bookId))}
+        onClick={() => {
+          dispatch(removeBook(bookId));
+        }}
       >
         Remove
       </button>
