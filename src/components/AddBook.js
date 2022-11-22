@@ -9,8 +9,9 @@ const AddBook = () => {
   const dispatch = useDispatch();
   const handleAddClick = () => {
     const newBook = {
-      id: uuidv4(),
+      item_id: uuidv4(),
       title: bookTitle,
+      category: 'Fiction',
       author: bookAuthor,
     };
     dispatch(addBook(newBook));
