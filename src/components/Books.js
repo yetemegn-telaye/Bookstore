@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getBookList } from '../redux/books/books';
 import AddBook from './AddBook';
 import Book from './Book';
+import '../styles/books.css';
 
 const Books = () => {
   const dispatch = useDispatch();
@@ -17,9 +18,9 @@ const Books = () => {
   const booksArr = useSelector((state) => state.books);
   if (booksArr.length > 0) {
     return (
-      <div>
-        <h1>Books</h1>
-        {
+      <div className="books-container">
+        <div className="books">
+          {
           booksArr.map((book) => (
             <Book
               key={book.id}
@@ -29,6 +30,8 @@ const Books = () => {
             />
           ))
             }
+        </div>
+        <hr />
         <AddBook />
       </div>
     );

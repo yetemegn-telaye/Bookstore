@@ -1,0 +1,115 @@
+.book-container {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 2rem 9.188rem 1.625rem 1.688rem;
+  width: 75rem;
+  height: 10.625rem;
+  margin: 2.313rem 6.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3px;
+}
+
+.buttons-list {
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.buttons-list button {
+  background-color: transparent;
+  border: none;
+  margin-right: 5px;
+  color: #4386bf;
+}
+
+.p-title {
+  font-weight: bold;
+  font-size: 1.375rem;
+}
+
+.p-author {
+  color: #4386bf;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.p-category {
+  color: gray;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.progress-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat h4 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.stat p {
+  font-size: 0.875rem;
+  color: #121212;
+  opacity: 0.5;
+}
+
+.circle-progress {
+  width: 4.25rem;
+  height: 4.25rem;
+  padding: 0.62rem 0.625rem 0.75rem 0.75rem;
+  border: 5px solid #307bbe;
+  border-left: 5px solid rgb(229, 229, 229);
+  border-radius: 50px;
+}
+
+.vertical-line {
+  width: 0.125rem;
+  height: 4.375rem;
+  margin: 1.125rem 3.688rem 0 4.938rem;
+  border: solid 1px #e8e8e8;
+}
+
+.p-current {
+  font-size: 0.813rem;
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+.p-chapter {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: -0.4px;
+  color: #121212;
+}
+
+.chapter-info .progress-btn {
+  margin-top: 15px;
+  border-radius: 3px;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  width: 11.5rem;
+  height: 2.063rem;
+  background-color: #0290ff;
+  border: none;
+  color: rgb(214, 214, 214);
+  text-align: center;
+  font-size: 0.813rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
