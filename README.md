@@ -10,7 +10,7 @@ A bookstore to add and remove books.
 
 ## Live Demo
 
-live demo here
+https://your-bookstore.netlify.app/
 
 ### Prerequisites
 - IDE(code editor) like: **Vscode**, **Sublime**, etc. 
