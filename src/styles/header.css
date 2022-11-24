@@ -1,0 +1,38 @@
+nav {
+  border-bottom: 1px solid gainsboro;
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 35px;
+}
+
+.nav-title {
+  font-weight: 800;
+  color: #0290ff;
+}
+
+.nav-links {
+  display: flex;
+  width: 45%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-links .route-links {
+  color: #121212;
+  text-decoration: none;
+}
+
+.route-links:hover {
+  color: gray;
+}
+
+.route-links:focus {
+  color: gray;
+}
+
+img {
+  width: 2.713rem;
+  height: 2.713rem;
+}
