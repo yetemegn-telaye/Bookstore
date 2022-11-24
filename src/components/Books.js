@@ -14,6 +14,7 @@ const Books = () => {
       shouldFetch.current = false;
       dispatch(getBookList());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const booksArr = useSelector((state) => state.books);
   if (booksArr.length > 0) {
