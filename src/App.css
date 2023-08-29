@@ -3,3 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+  background-color: lightgoldenrodyellow;
+}
+.cat-container {
+  border: 1px solid black;
+  
+}

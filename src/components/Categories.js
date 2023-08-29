@@ -1,14 +1,16 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { checkStatus } from '../redux/categories/categories';
+import { useSelector } from 'react-redux';
 
 const Categories = () => {
-  const dispatch = useDispatch();
   const cats = useSelector((state) => state.cats);
   return (
     <div>
-      <button type="button" onClick={() => dispatch(checkStatus())}>Check Status</button>
-      <p>{cats}</p>
+      {cats.map((cat) => (
+        <div className="cat-container" key={cat.id}>
+          <h3>{cat.name}</h3>
+          <p>{cat.status}</p>
+        </div>
+      ))}
     </div>
 
   );
