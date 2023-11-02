@@ -37,6 +37,6 @@ const Books = () => {
       </div>
     );
   }
-  return '';
+  return <AddBook />;
 };
 export default Books;
