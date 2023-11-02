@@ -28,6 +28,7 @@ const Books = () => {
               title={book.title}
               author={book.author}
               bookId={book.id}
+              currChapters={book.currChapters}
             />
           ))
             }
