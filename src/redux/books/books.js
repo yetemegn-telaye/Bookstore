@@ -51,14 +51,7 @@ import axios from 'axios';
 const apiKey = 'w8XZiEYWHqZVTTrAZGoW';
 const baseUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiKey}/books`;
 
-const booksList = [
-  {
-    id: '0',
-    title: 'Gatsby',
-    category: 'Fiction',
-    author: 'Johny Smith',
-  },
-];
+const booksList = [];
 
 export const getBookList = createAsyncThunk('books/getBookList', async () => {
   const resp = await axios.get(baseUrl);
@@ -91,6 +84,9 @@ const bookSlice = createSlice({
           title: elt[1][0].title,
           category: elt[1][0].category,
           author: elt[1][0].author,
+          totChapters: 100,
+          currChapters: 50,
+          comments: [],
         });
       });
       return newState;
