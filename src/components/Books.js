@@ -26,6 +26,7 @@ const Books = () => {
               key={id}
               title={book.title}
               author={book.author}
+              category={book.category}
               bookId={id}
               currChapters={Number(book.currChapters)}
               totChapters={Number(book.totChapters)}

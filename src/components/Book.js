@@ -6,13 +6,13 @@ import '../styles/book.css';
 
 const Book = (props) => {
   const {
-    title, author, bookId, currChapters, totChapters,
+    title, author, bookId, currChapters, totChapters, category,
   } = props;
   const dispatch = useDispatch();
   return (
     <div className="book-container">
       <div className="book-info">
-        <p className="p-category">Action</p>
+        <p className="p-category">{category}</p>
         <h3 className="p-title">{title}</h3>
         <p className="p-author">{author}</p>
         <div className="buttons-list">
@@ -55,6 +55,7 @@ const Book = (props) => {
 Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   bookId: PropTypes.string.isRequired,
   currChapters: PropTypes.number.isRequired,
   totChapters: PropTypes.number.isRequired,
