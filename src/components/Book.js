@@ -6,7 +6,7 @@ import '../styles/book.css';
 
 const Book = (props) => {
   const {
-    title, author, bookId,
+    title, author, bookId, currChapters, totChapters,
   } = props;
   const dispatch = useDispatch();
   return (
@@ -38,10 +38,13 @@ const Book = (props) => {
       </div>
       <div className="vertical-line" />
       <div className="chapter-info">
-        <p className="p-current">CURRENT CHAPTER</p>
+        <p className="p-current">
+          CURRENT CHAPTER:
+          {currChapters}
+        </p>
         <p className="p-chapter">
-          Chapter
-
+          Total Chapters:
+          {totChapters}
         </p>
         <button type="button" className="progress-btn">UPDATE PROGRESS</button>
       </div>
@@ -53,6 +56,8 @@ Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   bookId: PropTypes.string.isRequired,
+  currChapters: PropTypes.number.isRequired,
+  totChapters: PropTypes.number.isRequired,
 };
 
 export default Book;
