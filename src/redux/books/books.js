@@ -4,8 +4,6 @@ import axios from 'axios';
 const apiKey = 'w8XZiEYWHqZVTTrAZGoW';
 const baseUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiKey}/books`;
 
-const booksList = [];
-
 export const getBookList = createAsyncThunk('books/getBookList', async () => {
   const response = await axios.get(baseUrl);
   if (response.data) {
@@ -15,53 +13,63 @@ export const getBookList = createAsyncThunk('books/getBookList', async () => {
 });
 
 export const addBook = createAsyncThunk('books/addBook', async (book) => {
-  const response = await axios.post(baseUrl, book);
-  if (response.status === 201) {
-    // Enrich the book object with additional properties for the local state
-    return {
-      id: book.item_id,
-      title: book.title,
-      category: book.category,
-      author: book.author,
-      totChapters: 0, // default value for total chapters
-      currChapters: 0, // default value for current chapters read
-      comments: [], // default value for comments
-    };
-  }
-  throw new Error('Failed to add book');
+  await axios.post(baseUrl, {
+    item_id: book.itemId,
+    title: book.title,
+    category: book.category,
+    author: book.author,
+  });
+  localStorage
+    .setItem(book.itemId, JSON.stringify(
+      { currChapters: book.currChapters, totChapters: book.totChapters },
+    ));
+  return book;
 });
 
 export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
   await axios.delete(`${baseUrl}/${id}`);
+  localStorage.removeItem(id);
   return id;
 });
 
 const bookSlice = createSlice({
   name: 'books',
-  initialState: booksList,
+  initialState: {
+    books: {},
+  },
   reducers: {},
-  extraReducers: (build) => {
-    build.addCase(getBookList.fulfilled, (state, action) => {
-      const fetchedBooks = Object.entries(action.payload).map((elt) => ({
-        id: elt[0], // assuming each key has an array of book objects
-        title: elt[1][0].title,
-        category: elt[1][0].category,
-        author: elt[1][0].author,
-        totChapters: 0, // default value for total chapters
-        currChapters: 0, // default value for current chapters read
-        comments: [], // default value for comments
-      }));
-      return fetchedBooks;
+  extraReducers: (builder) => {
+    builder.addCase(getBookList.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.books = {};
+      Object.entries(action.payload).forEach(([id, bookData]) => {
+        const localData = JSON.parse(localStorage.getItem(id));
+        const currChapters = localData ? localData.currChapters : 0;
+        const totChapters = localData ? localData.totChapters : 0;
+        // eslint-disable-next-line no-param-reassign
+        state.books[id] = {
+          ...bookData[0],
+          currChapters,
+          totChapters,
+        };
+      });
     });
 
-    build.addCase(addBook.fulfilled, (state, action) => {
-      // Add the new book with additional properties to the state
-      state.push(action.payload);
+    builder.addCase(addBook.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      const { itemId, ...bookData } = action.payload;
+      // eslint-disable-next-line no-param-reassign
+      state.books[itemId] = {
+        ...bookData,
+        currChapters: bookData.currChapters || 0, // or some other logic to set this value
+        totChapters: bookData.totChapters || 0,
+      };
     });
 
-    build.addCase(removeBook.fulfilled, (state, action) => {
-      const newState = state.filter((book) => book.id !== action.payload);
-      return newState;
+    builder.addCase(removeBook.fulfilled, (state, action) => {
+      // Remove the book with the given ID
+      // eslint-disable-next-line no-param-reassign
+      delete state.books[action.payload];
     });
   },
 });
