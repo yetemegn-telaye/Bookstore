@@ -7,6 +7,7 @@ import {
 import Books from './components/Books';
 import Navigation from './components/Navigation';
 import Categories from './components/Categories';
+import AddComment from './components/AddComment';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Books />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/add-comment/:bookId" element={<AddComment />} />
       </Routes>
     </Router>
   );

@@ -15,28 +15,29 @@ const Books = () => {
       dispatch(getBookList());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  const booksArr = useSelector((state) => state.books);
-  if (booksArr.length > 0) {
+  }, [dispatch]);
+  const booksArr = useSelector((state) => state.books.books);
+  if (Object.keys(booksArr).length > 0) {
     return (
       <div className="books-container">
         <div className="books">
-          {
-          booksArr.map((book) => (
+          {Object.entries(booksArr).map(([id, book]) => (
             <Book
-              key={book.id}
+              key={id}
               title={book.title}
               author={book.author}
-              bookId={book.id}
+              category={book.category}
+              bookId={id}
+              currChapters={Number(book.currChapters)}
+              totChapters={Number(book.totChapters)}
             />
-          ))
-            }
+          ))}
         </div>
         <hr />
         <AddBook />
       </div>
     );
   }
-  return '';
+  return <AddBook />;
 };
 export default Books;
