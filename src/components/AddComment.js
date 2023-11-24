@@ -7,7 +7,7 @@ const AddComment = () => {
   const bookId = useParams();
 
   const handleAddComment = () => {
-    console.log(name, comment, bookId);
+    alert(name, comment, bookId);
   };
 
   return (
