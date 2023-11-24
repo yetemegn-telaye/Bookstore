@@ -21,6 +21,20 @@ export const addBook = createAsyncThunk('books/addBook', async (book) => {
   });
   localStorage
     .setItem(book.itemId, JSON.stringify(
+      { currChapters: book.currChapters, totChapters: book.totChapters, comments: [] },
+    ));
+  return book;
+});
+
+export const updateBook = createAsyncThunk('books/updateBook', async (book) => {
+  await axios.put(`${baseUrl}/${book.itemId}`, {
+    item_id: book.itemId,
+    title: book.title,
+    category: book.category,
+    author: book.author,
+  });
+  localStorage
+    .setItem(book.itemId, JSON.stringify(
       { currChapters: book.currChapters, totChapters: book.totChapters },
     ));
   return book;
@@ -46,11 +60,13 @@ const bookSlice = createSlice({
         const localData = JSON.parse(localStorage.getItem(id));
         const currChapters = localData ? localData.currChapters : 0;
         const totChapters = localData ? localData.totChapters : 0;
+        const comments = localData ? localData.comments : [];
         // eslint-disable-next-line no-param-reassign
         state.books[id] = {
           ...bookData[0],
           currChapters,
           totChapters,
+          comments,
         };
       });
     });
@@ -63,6 +79,19 @@ const bookSlice = createSlice({
         ...bookData,
         currChapters: bookData.currChapters || 0, // or some other logic to set this value
         totChapters: bookData.totChapters || 0,
+        comments: bookData.comments || [],
+      };
+    });
+
+    builder.addCase(updateBook.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      const { itemId, ...bookData } = action.payload;
+      // eslint-disable-next-line no-param-reassign
+      state.books[itemId] = {
+        ...bookData,
+        currChapters: bookData.currChapters || 0, // or some other logic to set this value
+        totChapters: bookData.totChapters || 0,
+        comments: bookData.comments || [],
       };
     });
 
@@ -74,4 +103,5 @@ const bookSlice = createSlice({
   },
 });
 
+export const { addComment } = bookSlice.actions;
 export default bookSlice.reducer;
