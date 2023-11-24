@@ -26,7 +26,7 @@ const Book = (props) => {
           >
             Remove |
           </button>
-          <button type="button">Edit</button>
+          <Link to={`/update-book/${bookId}`}>Edit |</Link>
         </div>
       </div>
       <div className="progress-status">
