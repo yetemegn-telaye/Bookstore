@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
@@ -16,7 +17,7 @@ const Book = (props) => {
         <h3 className="p-title">{title}</h3>
         <p className="p-author">{author}</p>
         <div className="buttons-list">
-          <button type="button">Comments |</button>
+          <Link to={`/add-comment/${bookId}`}>Comments |</Link>
           <button
             type="button"
             onClick={() => {
