@@ -30,7 +30,7 @@ const AddComment = () => {
           <input type="text" placeholder="Name" name="name" id="name" />
           <input type="text" placeholder="Comment" name="comment" id="comment" />
         </div>
-        <button type="button" className="add-comment-btn" onClick={() => console.log(bookId.bookId)}>Add Comment</button>
+        <button type="button" className="add-comment-btn">Add Comment</button>
       </form>
     </>
   );

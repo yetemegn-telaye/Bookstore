@@ -47,7 +47,7 @@ const UpdateBook = () => {
           <input type="text" placeholder="Current Chapter" name="currChapters" id="currChapters" />
           <input type="text" placeholder="Total Chapters" name="totChapters" id="totChapters" />
         </div>
-        <button type="button" className="add-book-btn" onClick={() => console.log(books)}>Update Book</button>
+        <button type="button" className="add-book-btn">Update Book</button>
       </form>
     </>
   );
