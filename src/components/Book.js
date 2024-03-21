@@ -14,19 +14,28 @@ const Book = (props) => {
     <div className="book-container">
       <div className="book-info">
         <p className="p-category">{category}</p>
-        <h3 className="p-title">{title}</h3>
-        <p className="p-author">{author}</p>
+        <h3 className="p-title">
+          {' '}
+          {title}
+        </h3>
+
+        <p className="p-author">
+          <span className="author-label">Author: </span>
+          {author}
+        </p>
         <div className="buttons-list">
-          <Link to={`/add-comment/${bookId}`}>Comments |</Link>
+          <Link to={`/add-comment/${bookId}`} className="comm-btn">Comments </Link>
+          <button type="button" className="edit-btn"> Edit</button>
           <button
             type="button"
+            className="remove-btn"
             onClick={() => {
               dispatch(removeBook(bookId));
             }}
           >
-            Remove |
+            Remove
           </button>
-          <button type="button">Edit</button>
+
         </div>
       </div>
       <div className="progress-status">
@@ -40,11 +49,11 @@ const Book = (props) => {
       <div className="vertical-line" />
       <div className="chapter-info">
         <p className="p-current">
-          CURRENT CHAPTER:
+          <span>CURRENT CHAPTER: </span>
           {currChapters}
         </p>
         <p className="p-chapter">
-          Total Chapters:
+          <span>Total Chapters: </span>
           {totChapters}
         </p>
         <button type="button" className="progress-btn">UPDATE PROGRESS</button>
